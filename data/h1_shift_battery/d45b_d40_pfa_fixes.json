@@ -1,0 +1,72 @@
+{
+  "config": {
+    "pool_full_n": 21462,
+    "pool_anmf4000_n": 4000,
+    "threshold_sources": "d40_cnn_baselines.json (deployed)"
+  },
+  "d40_defect_a": {
+    "description": "stage_phase2 indexed full_c/full_r by unit index instead of pool position; published phase2_anmf4000 rows used a mislabeled subset",
+    "realized_pfa_phase2_anmf4000_corrected": {
+      "CNN-C@0.001": 0.002,
+      "CNN-C@0.0001": 0.0,
+      "CNN-IQ@0.001": 0.00225,
+      "CNN-IQ@0.0001": 0.0005
+    },
+    "realized_pfa_phase2_anmf4000_as_published": {
+      "CNN-C@0.001": 0.0015,
+      "CNN-C@0.0001": 0.0,
+      "CNN-IQ@0.001": 0.00275,
+      "CNN-IQ@0.0001": 0.0005
+    },
+    "realized_pfa_phase2_full": {
+      "CNN-C@0.001": 0.0009318796011555307,
+      "CNN-C@0.0001": 4.659398005777654e-05,
+      "CNN-IQ@0.001": 0.0021899170627154973,
+      "CNN-IQ@0.0001": 0.00046593980057776533
+    }
+  },
+  "d40_defect_b": {
+    "description": "CNN-IQ 1e-4 threshold extrapolated from the 1,500-unit pool; re-thresholded at the realized quantile of the full 21,462-unit pool (empirical)",
+    "rethreshold": {
+      "CNN-IQ@0.0001": {
+        "threshold_deployed_extrapolated": 3.2936941098286088,
+        "threshold_realized_quantile_full_pool": 3.917612868881569,
+        "rate_at_deployed_full_pool": 0.00046593980057776533,
+        "rate_at_rethreshold_full_pool": 0.0001397819401733296,
+        "rate_at_rethreshold_anmf4000_poolpos": 0.00025
+      },
+      "CNN-C@0.0001": {
+        "threshold_deployed_extrapolated": 6.480104049253978,
+        "threshold_realized_quantile_full_pool": 5.779360281896655,
+        "rate_at_deployed_full_pool": 4.659398005777654e-05,
+        "rate_at_rethreshold_full_pool": 0.0001397819401733296
+      }
+    },
+    "rethreshold_pd_spot_cells": {
+      "CNN-C@0": {
+        "pd_deployed_extrapolated": 0.826,
+        "pd_rethreshold": 0.882
+      },
+      "CNN-IQ@0": {
+        "pd_deployed_extrapolated": 0.86,
+        "pd_rethreshold": 0.822
+      },
+      "CNN-C@5": {
+        "pd_deployed_extrapolated": 0.992,
+        "pd_rethreshold": 0.998
+      },
+      "CNN-IQ@5": {
+        "pd_deployed_extrapolated": 0.988,
+        "pd_rethreshold": 0.986
+      },
+      "CNN-C@10": {
+        "pd_deployed_extrapolated": 1.0,
+        "pd_rethreshold": 1.0
+      },
+      "CNN-IQ@10": {
+        "pd_deployed_extrapolated": 1.0,
+        "pd_rethreshold": 1.0
+      }
+    }
+  }
+}

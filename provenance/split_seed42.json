@@ -1,0 +1,35 @@
+{
+  "config_seed": 42,
+  "fractions": [
+    0.6,
+    0.2,
+    0.2
+  ],
+  "rule": "src.data.ipix_loader.file_split: campaign-stratified, per-campaign np.random.default_rng(42).shuffle over sorted stems; odd file to val",
+  "n_acquisitions": 16,
+  "partition": {
+    "train": [
+      "19931109_202217_starea",
+      "19931110_001635_starea",
+      "19931118_023604_stareC0000",
+      "19931108_213827_starea",
+      "19931107_135603_starea",
+      "19931118_162155_stareC0000",
+      "19931118_174259_stareC0000",
+      "19931118_035737_stareC0000",
+      "19980204_163113_ANTSTEP"
+    ],
+    "val": [
+      "19931109_191449_starea",
+      "19931107_145028_starea",
+      "19931108_220902_starea",
+      "19980205_171437_ANTSTEP"
+    ],
+    "test": [
+      "19931118_162658_stareC0000",
+      "19931107_141630_starea",
+      "19931111_163625_starea"
+    ]
+  },
+  "note": "Reproduced from cache stem NAMES only. The cubes themselves (887 MB) and the raw IPIX CDF files (K:\\All_14p2_Files) are not in this package, so this table documents the partition but does not let the reader re-derive scores without them."
+}

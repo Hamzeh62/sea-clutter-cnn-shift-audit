@@ -1,0 +1,404 @@
+{
+ "task": "T4a/R8b chirp-rate bank on the walk arm (paired with d45)",
+ "config": {
+  "n_walk": 200,
+  "scrs_db": [
+   0.0,
+   5.0,
+   10.0
+  ],
+  "rates_hz_per_cpi": [
+   0.0,
+   30.0,
+   -30.0,
+   60.0,
+   -60.0,
+   90.0,
+   -90.0,
+   120.0,
+   -120.0
+  ],
+  "bank_band_hz": 150.0,
+  "variants": {
+   "B0": "deployed 512-bin bank (reused from d45's cached walk arm)",
+   "B9": "512 bins + 9 LFM rates +-30..120 Hz/CPI",
+   "B9w": "LFM-rate columns only"
+  },
+  "n_cal": 600,
+  "n_h0t": 600,
+  "cal_recipe": "TEST-split clutter-only windows, seed-78 sampler/rng family (the project's deployed calibration pools are all TEST-split); per-variant EMPIRICAL 1e-3 quantile gates on identical windows (multiplicity policy: family size fixed by the bank definition, identical windows and design per variant -> matched per-variant calibration, no Bonferroni adjustment applied or needed)",
+  "walk_recipe": "d45 walk stream verbatim (base units sampler 141/rng 49, walk_aux rng 4302, per-trial rng_t sw0 slots), first 200 units; sweep width W mapped to the nearest positive bank rate",
+  "streams": {
+   "walk": "seed-42 family",
+   "cal": "seed 78 (test split)",
+   "h0t": "seed 79 (test split)"
+  }
+ },
+ "validation": {
+  "g1a_cnn_stream_max_absdiff": 9.5367431640625e-07,
+  "g1a_tolerance": 1e-05,
+  "g1b_hybrid_diff": {
+   "max_abs_diff": 3.341365016659714e-06,
+   "tolerance": 0.005,
+   "note": "B0 hybrid from this run's cached separations through the deployed prep vs d45's cached walk arm; single-window vs batched LSTM forward \u2014 a stream break would appear at the 0.05-0.15 scale"
+  },
+  "h0t_realized_pfa": {
+   "B0": {
+    "Proposed": 0.0016666666666666668,
+    "ANMF-DL0.001": 0.008333333333333333,
+    "CNN-C": 0.0,
+    "CNN-IQ": 0.0
+   },
+   "B9": {
+    "Proposed": 0.0016666666666666668,
+    "ANMF-DL0.001": 0.008333333333333333,
+    "CNN-C": 0.0,
+    "CNN-IQ": 0.0
+   },
+   "B9w": {
+    "Proposed": 0.0,
+    "ANMF-DL0.001": 0.0,
+    "CNN-C": 0.0,
+    "CNN-IQ": 0.0
+   }
+  }
+ },
+ "gates": {
+  "B0": {
+   "Proposed": 0.3092897803975524,
+   "ANMF-DL0.001": 0.5296446223532378,
+   "CNN-C": 4.869915191173545,
+   "CNN-IQ": 1.6112763482331482
+  },
+  "B9": {
+   "Proposed": 0.3092897803975524,
+   "ANMF-DL0.001": 0.5296446223532378,
+   "CNN-C": 4.869915191173545,
+   "CNN-IQ": 1.6112763482331482
+  },
+  "B9w": {
+   "Proposed": 0.21102754503735233,
+   "ANMF-DL0.001": 0.18772275370845648,
+   "CNN-C": 4.869915191173545,
+   "CNN-IQ": 1.6112763482331482
+  }
+ },
+ "pd": {
+  "B0": {
+   "0": {
+    "Proposed": {
+     "pd": 0.0,
+     "ci_lo": 0.0,
+     "ci_hi": 0.018275340355136237,
+     "k": 0,
+     "n": 200
+    },
+    "ANMF-DL0.001": {
+     "pd": 0.0,
+     "ci_lo": 0.0,
+     "ci_hi": 0.018275340355136237,
+     "k": 0,
+     "n": 200
+    },
+    "CNN-C": {
+     "pd": 0.845,
+     "ci_lo": 0.787262356784294,
+     "ci_hi": 0.8921905998959034,
+     "k": 169,
+     "n": 200
+    },
+    "CNN-IQ": {
+     "pd": 0.925,
+     "ci_lo": 0.8793157746003387,
+     "ci_hi": 0.9574171962629073,
+     "k": 185,
+     "n": 200
+    }
+   },
+   "5": {
+    "Proposed": {
+     "pd": 0.0,
+     "ci_lo": 0.0,
+     "ci_hi": 0.018275340355136237,
+     "k": 0,
+     "n": 200
+    },
+    "ANMF-DL0.001": {
+     "pd": 0.0,
+     "ci_lo": 0.0,
+     "ci_hi": 0.018275340355136237,
+     "k": 0,
+     "n": 200
+    },
+    "CNN-C": {
+     "pd": 0.925,
+     "ci_lo": 0.8793157746003387,
+     "ci_hi": 0.9574171962629073,
+     "k": 185,
+     "n": 200
+    },
+    "CNN-IQ": {
+     "pd": 0.98,
+     "ci_lo": 0.9495863909101037,
+     "ci_hi": 0.9945244341204436,
+     "k": 196,
+     "n": 200
+    }
+   },
+   "10": {
+    "Proposed": {
+     "pd": 0.0,
+     "ci_lo": 0.0,
+     "ci_hi": 0.018275340355136237,
+     "k": 0,
+     "n": 200
+    },
+    "ANMF-DL0.001": {
+     "pd": 0.0,
+     "ci_lo": 0.0,
+     "ci_hi": 0.018275340355136237,
+     "k": 0,
+     "n": 200
+    },
+    "CNN-C": {
+     "pd": 0.95,
+     "ci_lo": 0.9099724622986486,
+     "ci_hi": 0.9757658345278915,
+     "k": 190,
+     "n": 200
+    },
+    "CNN-IQ": {
+     "pd": 1.0,
+     "ci_lo": 0.9817246596448638,
+     "ci_hi": 1.0,
+     "k": 200,
+     "n": 200
+    }
+   }
+  },
+  "B9": {
+   "0": {
+    "Proposed": {
+     "pd": 0.0,
+     "ci_lo": 0.0,
+     "ci_hi": 0.018275340355136237,
+     "k": 0,
+     "n": 200
+    },
+    "ANMF-DL0.001": {
+     "pd": 0.0,
+     "ci_lo": 0.0,
+     "ci_hi": 0.018275340355136237,
+     "k": 0,
+     "n": 200
+    },
+    "CNN-C": {
+     "pd": 0.845,
+     "ci_lo": 0.787262356784294,
+     "ci_hi": 0.8921905998959034,
+     "k": 169,
+     "n": 200
+    },
+    "CNN-IQ": {
+     "pd": 0.925,
+     "ci_lo": 0.8793157746003387,
+     "ci_hi": 0.9574171962629073,
+     "k": 185,
+     "n": 200
+    }
+   },
+   "5": {
+    "Proposed": {
+     "pd": 0.0,
+     "ci_lo": 0.0,
+     "ci_hi": 0.018275340355136237,
+     "k": 0,
+     "n": 200
+    },
+    "ANMF-DL0.001": {
+     "pd": 0.0,
+     "ci_lo": 0.0,
+     "ci_hi": 0.018275340355136237,
+     "k": 0,
+     "n": 200
+    },
+    "CNN-C": {
+     "pd": 0.925,
+     "ci_lo": 0.8793157746003387,
+     "ci_hi": 0.9574171962629073,
+     "k": 185,
+     "n": 200
+    },
+    "CNN-IQ": {
+     "pd": 0.98,
+     "ci_lo": 0.9495863909101037,
+     "ci_hi": 0.9945244341204436,
+     "k": 196,
+     "n": 200
+    }
+   },
+   "10": {
+    "Proposed": {
+     "pd": 0.0,
+     "ci_lo": 0.0,
+     "ci_hi": 0.018275340355136237,
+     "k": 0,
+     "n": 200
+    },
+    "ANMF-DL0.001": {
+     "pd": 0.0,
+     "ci_lo": 0.0,
+     "ci_hi": 0.018275340355136237,
+     "k": 0,
+     "n": 200
+    },
+    "CNN-C": {
+     "pd": 0.95,
+     "ci_lo": 0.9099724622986486,
+     "ci_hi": 0.9757658345278915,
+     "k": 190,
+     "n": 200
+    },
+    "CNN-IQ": {
+     "pd": 1.0,
+     "ci_lo": 0.9817246596448638,
+     "ci_hi": 1.0,
+     "k": 200,
+     "n": 200
+    }
+   }
+  },
+  "B9w": {
+   "0": {
+    "Proposed": {
+     "pd": 0.0,
+     "ci_lo": 0.0,
+     "ci_hi": 0.018275340355136237,
+     "k": 0,
+     "n": 200
+    },
+    "ANMF-DL0.001": {
+     "pd": 0.0,
+     "ci_lo": 0.0,
+     "ci_hi": 0.018275340355136237,
+     "k": 0,
+     "n": 200
+    },
+    "CNN-C": {
+     "pd": 0.845,
+     "ci_lo": 0.787262356784294,
+     "ci_hi": 0.8921905998959034,
+     "k": 169,
+     "n": 200
+    },
+    "CNN-IQ": {
+     "pd": 0.925,
+     "ci_lo": 0.8793157746003387,
+     "ci_hi": 0.9574171962629073,
+     "k": 185,
+     "n": 200
+    }
+   },
+   "5": {
+    "Proposed": {
+     "pd": 0.0,
+     "ci_lo": 0.0,
+     "ci_hi": 0.018275340355136237,
+     "k": 0,
+     "n": 200
+    },
+    "ANMF-DL0.001": {
+     "pd": 0.0,
+     "ci_lo": 0.0,
+     "ci_hi": 0.018275340355136237,
+     "k": 0,
+     "n": 200
+    },
+    "CNN-C": {
+     "pd": 0.925,
+     "ci_lo": 0.8793157746003387,
+     "ci_hi": 0.9574171962629073,
+     "k": 185,
+     "n": 200
+    },
+    "CNN-IQ": {
+     "pd": 0.98,
+     "ci_lo": 0.9495863909101037,
+     "ci_hi": 0.9945244341204436,
+     "k": 196,
+     "n": 200
+    }
+   },
+   "10": {
+    "Proposed": {
+     "pd": 0.0,
+     "ci_lo": 0.0,
+     "ci_hi": 0.018275340355136237,
+     "k": 0,
+     "n": 200
+    },
+    "ANMF-DL0.001": {
+     "pd": 0.0,
+     "ci_lo": 0.0,
+     "ci_hi": 0.018275340355136237,
+     "k": 0,
+     "n": 200
+    },
+    "CNN-C": {
+     "pd": 0.95,
+     "ci_lo": 0.9099724622986486,
+     "ci_hi": 0.9757658345278915,
+     "k": 190,
+     "n": 200
+    },
+    "CNN-IQ": {
+     "pd": 1.0,
+     "ci_lo": 0.9817246596448638,
+     "ci_hi": 1.0,
+     "k": 200,
+     "n": 200
+    }
+   }
+  }
+ },
+ "mcnemar": {
+  "B0|CNN-C": {
+   "n10_hybrid_only": 0,
+   "n01_cnn_only": 169,
+   "p": 2.6727647100921956e-51
+  },
+  "B0|CNN-IQ": {
+   "n10_hybrid_only": 0,
+   "n01_cnn_only": 185,
+   "p": 4.078315292499078e-56
+  },
+  "B9|CNN-C": {
+   "n10_hybrid_only": 0,
+   "n01_cnn_only": 169,
+   "p": 2.6727647100921956e-51
+  },
+  "B9|CNN-IQ": {
+   "n10_hybrid_only": 0,
+   "n01_cnn_only": 185,
+   "p": 4.078315292499078e-56
+  },
+  "B9w|CNN-C": {
+   "n10_hybrid_only": 0,
+   "n01_cnn_only": 169,
+   "p": 2.6727647100921956e-51
+  },
+  "B9w|CNN-IQ": {
+   "n10_hybrid_only": 0,
+   "n01_cnn_only": 185,
+   "p": 4.078315292499078e-56
+  }
+ },
+ "notes": [
+  "Bank variants are post-hoc for the hybrid (cached separated channels; only C_sep-domain prep and the dictionary change) and share one eigh per unit for the ANMF.",
+  "CNN scores are bank-independent; their identical columns across variants isolate the threshold-gate effect.",
+  "Walk windows are a paired subset (first 200) of d45's 500-unit walk arm on the identical rng stream; the same trials d45 scored (guards G1a/G1b/G1c).",
+  "v3: the ANMF statistic is delegated to the deployed base.stat_py (numerator whitened, v = W^H(e*z)); the v1 local copy omitted the e-weight \u2014 all ANMF-derived artifacts (gates, held-out H0, walk ANMF rows) were purged and recomputed; hybrid rows are unchanged (separate, unaffected path).",
+  "B0 rows reuse d45's cached walk-arm statistics for the model-based detectors (exact same trials) RE-GATED at this run's empirical TEST-split per-variant quantiles \u2014 NOT d45's deployed-threshold rows; CNN B0 rows are this run's arrays, guard-equal to the cache at SCR 0 (G1a).",
+  "Reported either way it falls: if B9 does not recover the hybrid, the walk gap is NOT a bank-completeness artifact."
+ ]
+}

@@ -1,0 +1,33 @@
+detector,nominal_pfa,threshold,method,pool,artifact,extra
+ANMF,0.0001,0.9743349712013065,extrapolated,4000-unit pool,thresholds.json:thresholds,
+ANMF,0.0001,1.0824925259343194,extrapolated,calibration block,thresholds.json:pfa_calibration,empirical=nan
+ANMF,0.001,0.8026709087855421,extrapolated,calibration block,thresholds.json:pfa_calibration,empirical=nan
+ANMF,0.001,0.8721212391264919,extrapolated,4000-unit pool,thresholds.json:thresholds,
+ANMF,0.01,0.43718241086990517,empirical,4000-unit pool,thresholds.json:thresholds,
+ANMF,0.01,0.43718241086990517,empirical,calibration block,thresholds.json:pfa_calibration,empirical=0.01
+ANMF-DL0.001,0.0001,0.8211920291249909,unspecified-in-d45,anonymous,d45_shift_battery.json:config.thresholds,deployed extrapolated thresholds (anmf_load_ext.json)
+ANMF-DL0.001,0.001,0.6567024168979555,unspecified-in-d45,anonymous,d45_shift_battery.json:config.thresholds,deployed extrapolated thresholds (anmf_load_ext.json)
+CA-CFAR,0.0001,441588.04924989946,extrapolated,21462-unit pool,thresholds.json:thresholds,
+CA-CFAR,0.0001,441588.04924989946,extrapolated,calibration block,thresholds.json:pfa_calibration,empirical=nan
+CA-CFAR,0.001,121750.82169645114,empirical,21462-unit pool,thresholds.json:thresholds,
+CA-CFAR,0.001,121750.82169645114,empirical,calibration block,thresholds.json:pfa_calibration,empirical=0.0010250675612710838
+CA-CFAR,0.01,381.00896160498934,empirical,21462-unit pool,thresholds.json:thresholds,
+CA-CFAR,0.01,381.00896160498934,empirical,calibration block,thresholds.json:pfa_calibration,empirical=0.010017705712421955
+CNN-C,0.0001,6.480104049253978,unspecified-in-d45,anonymous,d45_shift_battery.json:config.thresholds,
+CNN-C,0.001,4.757193517120319,unspecified-in-d45,anonymous,d45_shift_battery.json:config.thresholds,
+CNN-IQ,0.0001,3.2936941098286088,unspecified-in-d45,anonymous,d45_shift_battery.json:config.thresholds,
+CNN-IQ,0.001,1.846975108501051,unspecified-in-d45,anonymous,d45_shift_battery.json:config.thresholds,
+GLRT,0.0001,5116949738998.328,extrapolated,4000-unit pool,thresholds.json:thresholds,
+GLRT,0.0001,5116949738998.328,extrapolated,calibration block,thresholds.json:pfa_calibration,empirical=nan
+GLRT,0.001,2174279757445.3325,extrapolated,4000-unit pool,thresholds.json:thresholds,
+GLRT,0.001,2174279757445.3325,extrapolated,calibration block,thresholds.json:pfa_calibration,empirical=nan
+GLRT,0.01,46423334908.207184,empirical,4000-unit pool,thresholds.json:thresholds,
+GLRT,0.01,46423334908.207184,empirical,calibration block,thresholds.json:pfa_calibration,empirical=0.01
+OS-CFAR,0.0001,519135.4711779392,extrapolated,21462-unit pool,thresholds.json:thresholds,
+OS-CFAR,0.0001,519135.4711779392,extrapolated,calibration block,thresholds.json:pfa_calibration,empirical=nan
+OS-CFAR,0.001,116712.02528145516,empirical,21462-unit pool,thresholds.json:thresholds,
+OS-CFAR,0.001,116712.02528145516,empirical,calibration block,thresholds.json:pfa_calibration,empirical=0.0010250675612710838
+OS-CFAR,0.01,594.3803214425958,empirical,21462-unit pool,thresholds.json:thresholds,
+OS-CFAR,0.01,594.3803214425958,empirical,calibration block,thresholds.json:pfa_calibration,empirical=0.010017705712421955
+Proposed,0.0001,0.5223658407373138,unspecified-in-d45,anonymous,d45_shift_battery.json:config.thresholds,empirical quantiles of the 1500-unit phase-4 H0 pool
+Proposed,0.001,0.46774686432347845,unspecified-in-d45,anonymous,d45_shift_battery.json:config.thresholds,empirical quantiles of the 1500-unit phase-4 H0 pool

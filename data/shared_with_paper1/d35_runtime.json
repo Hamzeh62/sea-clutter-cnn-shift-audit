@@ -1,0 +1,46 @@
+{
+  "config": {
+    "n": 200,
+    "warmup": 10,
+    "seed": 42,
+    "conditions": "no MC contention, H0 windows, single process, OPENBLAS 8 threads",
+    "note": "post-D4 code path (ica_fix adopted); the \u00a74.6 table was pre-D4-fix, measured inside the MC loop"
+  },
+  "ms_per_unit": {
+    "Proposed_network": 28.977924585342407,
+    "Proposed_sep_nmf": 243.58905673027039,
+    "Proposed_end_to_end": 272.5669813156128,
+    "Delay_network": 25.26883602142334,
+    "Delay_sep_nmf": 232.8866159915924,
+    "Delay_end_to_end": 258.15545201301575,
+    "ANMF_deployed": 657.3258078098297,
+    "ANMF_eigen_orig": 4.856412410736084,
+    "ANMF_eigen_dl0.001": 4.854588508605957,
+    "CA_OS_CFAR_pair": 19.106725454330444,
+    "GLRT": 0.0
+  },
+  "old_table_ms_per_unit_sw0": {
+    "Proposed": 288,
+    "ANMF": 273,
+    "CA/OS-CFAR": 16
+  },
+  "complexity": {
+    "Proposed": "network (conv+LSTM, Np=512, 2 ch) + whiten/eigh O(Np^2) + anchored cICA (50 anchored iters + median 1 FastICA sweep post-D4) + C_sep solve O(Np^2) + steering-bank NMF max over Np bins",
+    "Delay warm": "same as Proposed on the [x(t), x(t-1)] stack (2x input), retrained checkpoint",
+    "ANMF deployed": "K=1024 secondary windows, unit-normalized; SCM O(K Np^2); C^-1 solve O(Np^3)~O(Np^2.4); GLRT rides along (<1 ms)",
+    "ANMF loaded/eigen": "one shared eigh O(Np^3) per unit + per-variant diagonal re-weighting (no repeated solves)",
+    "CA/OS-CFAR": "range-block O((2R+1) Np) sums + order-statistic sort over the training window (OS)"
+  },
+  "interpretation": {
+    "proposed_sep_nmf_ms": 243.58905673027039,
+    "proposed_sep_nmf_vs_preD4_x": 1.1823191233048966,
+    "proposed_e2e_ms": 272.5669813156128,
+    "delay_e2e_ms": 258.15545201301575,
+    "anmf_deployed_ms": 657.3258078098297,
+    "anmf_eigen_dl_ms": 4.854588508605957,
+    "cfar_pair_ms": 19.106725454330444,
+    "ratio_proposed_e2e_vs_anmf_eigen": 56.146258500060405,
+    "ratio_proposed_e2e_vs_cfar_pair": 14.265499442440403,
+    "text": "post-D4: separation+NMF costs 243.6 ms/unit (was ~288 ms pre-D4, i.e. ~1x faster); network adds 29.0 ms; end-to-end Proposed 272.6 ms/unit, delay-warm 258.2; ANMF deployed 657.3 ms, loaded eigen path 4.9 ms; CA/OS-CFAR pair 19.1 ms"
+  }
+}

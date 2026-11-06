@@ -1,0 +1,187 @@
+{
+  "config": {
+    "Np": 512,
+    "hop": 256,
+    "K_secondary": 1024,
+    "seed": 42,
+    "n_units_total": 21462,
+    "n_units_adaptive": 4000,
+    "cfar": {
+      "train_range": 8,
+      "guard_range": 2,
+      "train_dop": 8,
+      "guard_dop": 2,
+      "os_fraction": 0.75
+    }
+  },
+  "thresholds": {
+    "CA-CFAR": {
+      "0.01": {
+        "threshold": 381.00896160498934,
+        "method": "empirical",
+        "n": 21462
+      },
+      "0.001": {
+        "threshold": 121750.82169645114,
+        "method": "empirical",
+        "n": 21462
+      },
+      "0.0001": {
+        "threshold": 441588.04924989946,
+        "method": "extrapolated",
+        "n": 21462
+      }
+    },
+    "OS-CFAR": {
+      "0.01": {
+        "threshold": 594.3803214425958,
+        "method": "empirical",
+        "n": 21462
+      },
+      "0.001": {
+        "threshold": 116712.02528145516,
+        "method": "empirical",
+        "n": 21462
+      },
+      "0.0001": {
+        "threshold": 519135.4711779392,
+        "method": "extrapolated",
+        "n": 21462
+      }
+    },
+    "ANMF": {
+      "0.01": {
+        "threshold": 0.43718241086990517,
+        "method": "empirical",
+        "n": 4000
+      },
+      "0.001": {
+        "threshold": 0.8721212391264919,
+        "method": "extrapolated",
+        "n": 4000
+      },
+      "0.0001": {
+        "threshold": 0.9743349712013065,
+        "method": "extrapolated",
+        "n": 4000
+      }
+    },
+    "GLRT": {
+      "0.01": {
+        "threshold": 46423334908.207184,
+        "method": "empirical",
+        "n": 4000
+      },
+      "0.001": {
+        "threshold": 2174279757445.3325,
+        "method": "extrapolated",
+        "n": 4000
+      },
+      "0.0001": {
+        "threshold": 5116949738998.328,
+        "method": "extrapolated",
+        "n": 4000
+      }
+    }
+  },
+  "pfa_calibration": [
+    {
+      "detector": "CA-CFAR",
+      "nominal": 0.01,
+      "threshold": 381.00896160498934,
+      "method": "empirical",
+      "empirical": 0.010017705712421955
+    },
+    {
+      "detector": "CA-CFAR",
+      "nominal": 0.001,
+      "threshold": 121750.82169645114,
+      "method": "empirical",
+      "empirical": 0.0010250675612710838
+    },
+    {
+      "detector": "CA-CFAR",
+      "nominal": 0.0001,
+      "threshold": 441588.04924989946,
+      "method": "extrapolated",
+      "empirical": NaN
+    },
+    {
+      "detector": "OS-CFAR",
+      "nominal": 0.01,
+      "threshold": 594.3803214425958,
+      "method": "empirical",
+      "empirical": 0.010017705712421955
+    },
+    {
+      "detector": "OS-CFAR",
+      "nominal": 0.001,
+      "threshold": 116712.02528145516,
+      "method": "empirical",
+      "empirical": 0.0010250675612710838
+    },
+    {
+      "detector": "OS-CFAR",
+      "nominal": 0.0001,
+      "threshold": 519135.4711779392,
+      "method": "extrapolated",
+      "empirical": NaN
+    },
+    {
+      "detector": "ANMF",
+      "nominal": 0.01,
+      "threshold": 0.43718241086990517,
+      "method": "empirical",
+      "empirical": 0.01
+    },
+    {
+      "detector": "ANMF",
+      "nominal": 0.001,
+      "threshold": 0.8026709087855421,
+      "method": "extrapolated",
+      "empirical": NaN
+    },
+    {
+      "detector": "ANMF",
+      "nominal": 0.0001,
+      "threshold": 1.0824925259343194,
+      "method": "extrapolated",
+      "empirical": NaN
+    },
+    {
+      "detector": "GLRT",
+      "nominal": 0.01,
+      "threshold": 46423334908.207184,
+      "method": "empirical",
+      "empirical": 0.01
+    },
+    {
+      "detector": "GLRT",
+      "nominal": 0.001,
+      "threshold": 2174279757445.3325,
+      "method": "extrapolated",
+      "empirical": NaN
+    },
+    {
+      "detector": "GLRT",
+      "nominal": 0.0001,
+      "threshold": 5116949738998.328,
+      "method": "extrapolated",
+      "empirical": NaN
+    }
+  ],
+  "anmf_analytic_beta": {
+    "0.01": {
+      "threshold_scm": 0.008936767506772747,
+      "threshold_known": 0.008971587697842343
+    },
+    "0.001": {
+      "threshold_scm": 0.01337515682105106,
+      "threshold_known": 0.013427152742206516
+    },
+    "0.0001": {
+      "threshold_scm": 0.0177936692000753,
+      "threshold_known": 0.017862686009864626
+    }
+  }
+}

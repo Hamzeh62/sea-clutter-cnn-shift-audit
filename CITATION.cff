@@ -1,0 +1,12 @@
+cff-version: 1.2.0
+message: "Cite this version of the research software and its DOI when published; checkpoint/data artifacts will be archived separately on Zenodo. No DOI has been assigned to this staging archive."
+title: "Sea-clutter learned detector distribution-shift evaluation: research code and numerical artifacts"
+type: software
+authors:
+  - family-names: Ghahramani
+    given-names: Hamzeh
+    affiliation: "Department of Electrical Engineering, Islamic Azad University, Bandar Lengeh Branch / Bandar Khamir Center, Iran"
+    email: hamze.ghahramani@iau.ac.ir
+version: "1.0.0"
+abstract: "Research code, preserved CNN-detector numerical results, and figure-reproduction resources for a study of radar detection under distribution shift. The original trained CNN checkpoints are archived separately in Zenodo as CC BY 4.0 research artifacts."
+license: MIT

@@ -1,0 +1,26 @@
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.venv/
+venv/
+.DS_Store
+Thumbs.db
+*.aux
+*.log
+*.fdb_latexmk
+*.fls
+reproduced_figures/
+cache/
+raw_data/
+*.cdf
+*.iso
+
+# Third-party raw-data and unredistributable caches
+*.CDF
+*.ISO
+*.h5
+*.hdf5
+window_cache/
+**/raw_ipix/
+# Checkpoints archived via Zenodo dataset, not GitHub
+checkpoints/*.pt

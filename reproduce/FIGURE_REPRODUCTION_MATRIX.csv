@@ -1,0 +1,8 @@
+figure,source,published_pdf,regeneration,raw_ipix_required
+Fig1_H0Tails,learned_baselines/d40_scores_phase2.npz; shared_with_paper1/anmf_load_ext.json,fig_cnn_h0tail.pdf,CNN-only diagnostic; original PDF preserved,ANMF-DL raw H0 array absent
+Fig2_TercilePFA,coherence_energy/d46_r8c_scaled_tercile_pfa.json,fig_r8c_tercile_pfa.pdf,from saved JSON,no
+Fig3_H0Shift,h0_calibration_transfer/d49_h0_shift.json,fig_h0shift.pdf,from saved JSON,no
+Fig4_Frontier,h1_shift_battery/d45_shift_battery.json; h0_calibration_transfer/d49_h0_shift.json; h0_calibration_transfer/d51_h0_seed2.json; real_target/d48_real_target_invivo.json,fig_paper2_frontier.pdf,from saved JSON,no
+Fig5_Occlusion,coherence_energy/d47_occlusion_dists.json,fig_r8c_occlusion.pdf,from saved JSON,no
+Fig6_RangeDoppler,real_target/d48_real_target_invivo.json; external raw IPIX CDF,fig_realtarget_rdmaps.pdf,original PDF preserved; raw CDF required,yes
+Fig7_PerCellRates,real_target/d48_real_target_invivo.json,fig_realtarget_cellrates.pdf,from saved JSON,no

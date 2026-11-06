@@ -1,0 +1,172 @@
+{
+  "config": {
+    "n": 100,
+    "warmup": 5,
+    "protocol": "D35 unit protocol (seed 42+99 sampler, 42+7 perm)",
+    "budget_ms_per_cpi": 512.0,
+    "conditions": "no MC contention, H0 windows, single process, OPENBLAS 8 threads"
+  },
+  "legacy": {
+    "polar": {
+      "whiten": {
+        "mean": 0.278149995720014,
+        "median": 0.2633499098010361,
+        "p90": 0.3373000072315335
+      },
+      "warm_svd": {
+        "mean": 0.13221799628809094,
+        "median": 0.116649956908077,
+        "p90": 0.15895992983132604
+      },
+      "ica": {
+        "mean": 12.32263000216335,
+        "median": 11.811550066340715,
+        "p90": 15.834170079324396
+      },
+      "nmf": {
+        "mean": 315.8249639940914,
+        "median": 277.48884999891743,
+        "p90": 467.4066000268795
+      }
+    },
+    "total_ms": 328.55796198826283,
+    "delay": {
+      "whiten": {
+        "mean": 0.2787440037354827,
+        "median": 0.2438000519759953,
+        "p90": 0.29810004634782683
+      },
+      "warm_svd": {
+        "mean": 0.11635099886916578,
+        "median": 0.09814993245527148,
+        "p90": 0.13365997001528743
+      },
+      "ica": {
+        "mean": 9.60245100199245,
+        "median": 9.79994999943301,
+        "p90": 13.902640028391033
+      },
+      "nmf": {
+        "mean": 248.8998969970271,
+        "median": 228.31689997110516,
+        "p90": 345.85769000696024
+      }
+    },
+    "delay_total_ms": 258.8974430016242
+  },
+  "hoisted": {
+    "polar": {
+      "whiten": {
+        "mean": 0.27456899522803724,
+        "median": 0.24369999300688505,
+        "p90": 0.3257199190557003
+      },
+      "warm_svd": {
+        "mean": 0.11192800127901137,
+        "median": 0.10155007475987077,
+        "p90": 0.1434200443327427
+      },
+      "ica": {
+        "mean": 12.399291006149724,
+        "median": 11.817799997515976,
+        "p90": 16.33536998415366
+      },
+      "nmf": {
+        "mean": 3.700869003077969,
+        "median": 3.4441499738022685,
+        "p90": 4.598560056183487
+      }
+    },
+    "total_ms": 16.48665700573474,
+    "delay": {
+      "whiten": {
+        "mean": 0.2199200016912073,
+        "median": 0.22759998682886362,
+        "p90": 0.24737002095207575
+      },
+      "warm_svd": {
+        "mean": 0.09032999747432768,
+        "median": 0.09310001041740179,
+        "p90": 0.10266007157042624
+      },
+      "ica": {
+        "mean": 7.7304340014234185,
+        "median": 7.8983999555930495,
+        "p90": 9.861479979008436
+      },
+      "nmf": {
+        "mean": 2.6388290023896843,
+        "median": 2.585000009275973,
+        "p90": 2.933819976169616
+      }
+    },
+    "delay_total_ms": 10.679513002978638,
+    "n_hoist_polar": 100,
+    "n_hoist_delay": 100
+  },
+  "equality": {
+    "s_T_max_rel_polar": 1.1282826452549252e-14,
+    "s_T_max_rel_delay": 6.140653929088832e-16,
+    "stat_max_rel_polar": 2.142658712962936e-14,
+    "stat_max_rel_delay": 2.322569899787087e-14,
+    "s_T_note": "hoisted path skips the redundant outer Newton-Schulz pass (polar is idempotent to rounding) and applies Cinv by matvec instead of solve: s_T and the statistic agree to <=1e-14 relative (float rounding); the delta gate defaults OFF in configs/default.yaml so recorded pipelines replay byte-exactly"
+  },
+  "mdl_check": {
+    "whiten_ms_mdl_on": 0.13506501563824713,
+    "whiten_ms_mdl_off": 0.12395998346619307,
+    "note": "M=2 short-circuits the MDL search in whiten() \u2014 MDL is free at M=2"
+  },
+  "per_unit_rebuild": {
+    "C_sep": false,
+    "CinvP": false,
+    "steering_bank": false,
+    "note": "prep built once at setup; per-unit path calls only whiten/SVD/ICA/NMF (code-audited)"
+  },
+  "setup_costs_ms": {
+    "steering_bank": 35.33600002992898,
+    "CinvP_solve": 304.04990003444254,
+    "Cinv_inv": 282.34570007771254,
+    "Chat_eigh": 369.20819990336895,
+    "delay_prep_s": 7.997623200062662,
+    "note": "pool-level, built once; amortized to ~0 per unit"
+  },
+  "network": {
+    "batch1_ms": 21.170185999944806,
+    "batch32_ms_per_unit": 13.782204000744969,
+    "note": "torch CPU; batched path exists (network_out_batch) and is GPU-portable"
+  },
+  "ica_sweeps": {
+    "median_fastica_sweeps": 1.0,
+    "mean": 1.0,
+    "p90": 1.0,
+    "note": "post-D4: 50 anchored iters + median 1 FastICA sweep"
+  },
+  "cpi_budget": {
+    "budget_ms": 512.0,
+    "proposed_hoisted_e2e_ms": 37.65684300567955,
+    "proposed_legacy_e2e_ms": 349.72814798820764,
+    "per_cell_cpi_utilization_hoisted": 0.07354852149546787,
+    "per_cell_cpi_utilization_legacy": 0.683062789039468,
+    "cells_per_cpi_hoisted": 13.596466382558363,
+    "swath14_ms_hoisted": 527.1958020795137,
+    "swath28_ms_hoisted": 1054.3916041590273,
+    "delay_in_loop_e2e_ms": 37.62554900138639,
+    "note": "sequential per-cell processing on CPU; e2e = sum of separately timed stages (network batch-1 + hoisted sep+NMF); the delay arm's in-loop pass validates the additivity; network forward is GPU-batchable"
+  },
+  "interpretation": {
+    "legacy_solve_run_to_run_ms": [
+      165.0,
+      191.0,
+      221.0,
+      271.0
+    ],
+    "legacy_solve_noise_note": "np.linalg.solve on this machine varies run-to-run (repeated d36 passes and micro-benchmarks: 165-271 ms for the same op); D35's 243.6 ms sep+NMF falls inside that envelope, so D35's aggregate is consistent with a solve-dominated path, not a different code path",
+    "legacy_sep_nmf_ms_polar": 328.55796198826283,
+    "hoisted_sep_nmf_ms_polar": 16.48665700573474,
+    "speedup_x": 19.92871944105932,
+    "d35_sep_nmf_ms": 243.58905673027039,
+    "legacy_matches_d35": 0.34882069990557796,
+    "nmf_solve_share_of_legacy": 0.9612458090587185,
+    "text": "legacy decomposition (polar): whiten 0.3 + warm-SVD 0.1 + ICA 12.3 + NMF 315.8 = 328.6 ms \u2014 the NMF stage is dominated by the per-unit np.linalg.solve(Chat, s_T) despite Chat being pool-level (316 ms, 96% of the path); hoisting it (prep['Cinv'] matvec) plus single-whiten/single-polar gives 16.5 ms/unit (19.9x), with s_T and the statistic equal to 2.1e-14 rel (rounding)"
+  }
+}

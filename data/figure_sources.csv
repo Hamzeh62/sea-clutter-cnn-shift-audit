@@ -1,0 +1,8 @@
+figure,caption_short,script,function,source_data,reproducibility_from_this_package
+fig_cnn_h0tail,H0 score tails of both CNNs vs extrapolated thresholds,code/cnns/d40_cnn_eval.py,fig_tail() L422-,"data/learned_baselines/d40_scores_pool77.npz; data/learned_baselines/d40_cnn_baselines.json:thresholds,tail",exact
+fig_r8c_tercile_pfa,scaled per-sea-state realized Pfa at deployed thresholds,code/battery/d46_r8c_scaled_tercile_pfa.py,_fig() L342-382,"data/coherence_energy/d46_r8c_scaled_tercile_pfa.json:realized_pfa,terciles,nu_pool",exact
+fig_h0shift,H0-side shift: realized Pfa with exact 95% intervals,code/battery/d49_h0_shift.py,_figs() L339-376,data/h0_calibration_transfer/d49_h0_shift.json:realized_pfa,exact
+fig_paper2_frontier,"two-sided frontier (thesis figure, 3 panels)",code/figures/fig_paper2_frontier.py,whole script L162-163,"d45_shift_battery.json:robustness,mechanism | d49_h0_shift.json:realized_pfa | d51_h0_seed2.json:realized_pfa | d48_real_target_invivo.json:per_file",exact
+fig_r8c_occlusion,tone-occlusion probe at 0 and +10 dB,code/battery/d47_occlusion_dists.py,_figs() L145-212,"data/coherence_energy/d47_occlusion_dists.json:per_scr[scr][det]{base,occ,delta}_scores,threshold",exact
+fig_realtarget_rdmaps,range-Doppler maps of the annotated target cells,code/battery/d48_real_target_invivo.py,_figs() L463-485,data/real_target/d48_real_target_invivo.json:per_file[*]; raw CDF for the map pixels,partial: map pixels need the raw IPIX file
+fig_realtarget_cellrates,per-cell apparent detection rates,code/battery/d48_real_target_invivo.py,_figs() L463-523,"data/real_target/d48_real_target_invivo.json:per_file[*].per_cell, nu_correlation",exact

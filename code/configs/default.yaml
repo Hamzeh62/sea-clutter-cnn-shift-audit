@@ -1,0 +1,86 @@
+# IPIX hybrid detector — master config (all knobs; no code edits needed to change any value)
+seed: 42
+data:
+  raw_dir: "K:\\All_14p2_Files"
+  cache_dir: "cache"
+  channel_mode: "polarimetric"     # polarimetric (VV+VH) | delay_embed (x(t), x(t-Delta))
+  primary_pol: "VV"                # detection channel; cross pol auto-selected
+  delay_delta: 1                   # pulses, for delay_embed mode
+  advection_window_s: null
+processing:
+  Np: 512                          # CPI length (pulses of one TX pol => 2x sweeps in alternating mode)
+  hop: 256
+  fft_window: "hann"
+  doppler_bins: 512
+split:
+  seed: 42
+  fractions: [0.6, 0.2, 0.2]
+clutter_fit:
+  max_samples_per_cell: 20000
+  ks_alpha: 0.05
+synth:
+  texture_corr_s: [0.1, 1.0]       # AR(1) texture correlation time range (s)
+  psd_nperseg: 512
+baselines:
+  cfar:
+    train_range: 8                 # training cells each side (range)
+    guard_range: 2
+    train_dop: 8                   # training bins each side (Doppler)
+    guard_dop: 2
+    os_fraction: 0.75              # k = ceil(0.75 * N_train)
+  anmf:
+    K_secondary: 1024              # >= 2*Np secondary windows
+    secondary_cells_each_side: 4   # adjacent cells, same CPI index
+    windows_per_cell: null         # derived if null
+calibration:
+  pfa_grid: [1.0e-2, 1.0e-3, 1.0e-4]
+  n_units_target: 100000
+  extrapolate_below: 5000          # if fewer samples than this for 1e-4, use analytic+tail extrapolation
+eval:
+  scr_grid_db: [-30, -27.5, -25, -22.5, -20, -17.5, -15, -12.5, -10, -7.5, -5, -2.5, 0, 2.5, 5, 7.5, 10]
+  n_mc: 500                        # CPU budget (spec allows 500; 1000 on GPU)
+  swerling: [0, 1, 2]
+  roc_scr_db: [0, -5, -10]
+  ci: 0.95
+model:
+  conv_channels: [64, 128]
+  kernel_sizes: [7, 5]
+  lstm_hidden: 128
+  d_max: null                      # null => MDL estimate, capped at M
+  ica:
+    tol: 1.0e-6
+    max_sweeps: 100
+    xi: 0.5                        # reference-anchor constraint level
+    mu: 0.1                        # augmented-Lagrangian step
+    restart_after: 3               # contrast decreases -> cold restart
+  ica_fix:                         # D4 oscillation fixes (ADOPTED default, D26)
+    damping: 0.0                   # alpha for W <- (1-a)W + a F(W) (not adopted)
+    best_iterate: false            # return argmax-contrast iterate (not adopted)
+    perm_invariant: true           # signed-permutation-invariant stopping test
+    stagnation_window: 10          # rel. contrast improvement over last 10 sweeps
+    stagnation_thresh: 1.0e-4      # < thresh -> stop (replaces legacy 3-decrease rule)
+    # delta: 1.0e-12               # D36 per-unit hoist gate (UNSET by default = legacy
+                                   # bit-reproducible path; see d36_runtime_decomp.py)
+  newton_schulz_iters: 8
+training:
+  regime: "S0_then_S1"             # S0 pretrain synthetic; S1 fine-tune real+injected
+  epochs: 30                       # CPU budget
+  steps_per_epoch: 15
+  batch: 16
+  lr: 1.0e-3
+  lr_min: 1.0e-5
+  early_stop_patience: 8
+  lambda_A: 1.0
+  lambda_r: 0.5
+  lambda_1: 1.0
+  lambda_2: 0.1                    # ramps to 1.0
+  lambda_3: 1.0
+  lambda_4: 0.1
+  ramp_epochs: 20
+  torch_threads: 6
+ablations:
+  pfa: 1.0e-3
+  variants: ["cold_ica", "no_phys", "net_only", "ica_only"]
+runtime:
+  num_workers: 0
+  print_eta: true

@@ -1,0 +1,9 @@
+{
+ "note": "sha256 of json/nb3_stage_b_verdict.json at adjudication time; the Q1..Q7 verdicts are frozen after this",
+ "q1_recovery": "REFUTED",
+ "q5_nb1_generalization": "REFUTED",
+ "winner_arm": "prop_maxrow_nu",
+ "stage": "HELD-OUT 8/8",
+ "sha256": "0cfe61ee7a2f775c5b3be1c3bc9a319a1081e20a8259a85c39ae8634f6cc80da",
+ "sealed_utc": "2026-09-24T18:46:34Z"
+}

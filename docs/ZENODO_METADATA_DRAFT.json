@@ -1,0 +1,26 @@
+{
+  "title": "Do Learned Detectors Transfer? Sea-Clutter CNN Distribution-Shift Reproducibility Artifacts",
+  "upload_type": "software",
+  "creators": [
+    {
+      "name": "Ghahramani, Hamzeh",
+      "affiliation": "Department of Electrical Engineering, Bandar Khamir Center / Bandar Lengeh Branch, Islamic Azad University, Iran"
+    }
+  ],
+  "description": "Versioned source code, two trained CNN checkpoints, score arrays, calibration-transfer analyses and figure reproduction materials for an unpublished research manuscript. Historical IPIX experimental protocol; third-party raw IPIX CDF data excluded. Figure 6 raw range-Doppler pixels cannot be regenerated from this deposit alone.",
+  "keywords": [
+    "sea clutter",
+    "radar detection",
+    "distribution shift",
+    "calibration",
+    "CNN",
+    "complex-valued networks",
+    "reproducibility",
+    "IPIX"
+  ],
+  "version": "1.0.0",
+  "license": "MIT",
+  "publication_date": "TO_BE_SET_AT_PUBLICATION",
+  "related_identifiers": [],
+  "notes": "Draft metadata for source code only, with MIT. The separately deposited model weights and numerical artifacts use CC BY 4.0. No DOI is assigned until the appropriate record is actually published."
+}

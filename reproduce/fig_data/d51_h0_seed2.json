@@ -1,0 +1,97 @@
+{
+ "task": "T4b second-seed replication of d49's headline cells (fresh pool, seed 142)",
+ "config": {
+  "pool_seed": 142,
+  "n_pool": 6000,
+  "chunk": 250,
+  "pool_recipe": "UnitSampler(test, seed=142), rng(142).permutation order",
+  "nu_source": "phase-1 clutter_stats.json MoM (k_moments)",
+  "terciles": {
+   "t1": 1.237828226385913,
+   "t2": 4.240927925723636
+  },
+  "threshold_rule": "phase-4 M3 extrapolated (n*1e-3 <= 2 in every calib pool)",
+  "counts": {
+   "spike": 1341,
+   "flat": 1155,
+   "rand_nu_matched": 1257
+  },
+  "detectors": [
+   "CNN-C",
+   "Proposed"
+  ]
+ },
+ "thresholds": {
+  "CNN-C": {
+   "C_flat": {
+    "n": 1155,
+    "t_1e3": -0.044983812252910926
+   },
+   "C_rand": {
+    "n": 1257,
+    "t_1e3": 7.719250451656422
+   }
+  },
+  "Proposed": {
+   "C_flat": {
+    "n": 1155,
+    "t_1e3": 0.1052155210198058
+   },
+   "C_rand": {
+    "n": 1257,
+    "t_1e3": 0.12855016452902668
+   }
+  }
+ },
+ "realized_pfa": {
+  "CNN-C": {
+   "T_spike": {
+    "C_flat@0.001": {
+     "k": 138,
+     "n": 894,
+     "rate": 0.15436241610738255,
+     "ci_lo": 0.1312896989469937,
+     "ci_hi": 0.17973855306958897
+    },
+    "C_rand@0.001": {
+     "k": 0,
+     "n": 894,
+     "rate": 0.0,
+     "ci_lo": 0.0,
+     "ci_hi": 0.004117762043712009
+    }
+   }
+  },
+  "Proposed": {
+   "T_spike": {
+    "C_flat@0.001": {
+     "k": 19,
+     "n": 894,
+     "rate": 0.021252796420581657,
+     "ci_lo": 0.012842902343020011,
+     "ci_hi": 0.03299059785258147
+    },
+    "C_rand@0.001": {
+     "k": 9,
+     "n": 894,
+     "rate": 0.010067114093959731,
+     "ci_lo": 0.0046133677596912805,
+     "ci_hi": 0.01902416682311541
+    }
+   }
+  }
+ },
+ "notes": [
+  "Replicates d49's headline cells with a fresh pool (seed 142): flat-calibrated -> spike tercile and random-pool controls, CNN-C and hybrid only (the two arms that carry the story).",
+  "Same recipe, tercile definition, threshold rule, and disjointness construction as d49 (d49_h0_shift.py); pool draw and threshold pools are the only things that change.",
+  "The replication tests the ORDERING (CNN-C inflation >> hybrid inflation, controls at/nominal), not any single cell's value."
+ ],
+ "derived": {
+  "cnnC_xnom": 154.0,
+  "hyb_xnom": 21.0,
+  "cnnC_control_rate": 0.0,
+  "hyb_control_rate": 0.010067114093959731,
+  "ordering_holds": true,
+  "controls_at_or_below_nominal": false
+ }
+}
