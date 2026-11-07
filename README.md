@@ -8,14 +8,14 @@ Email: hamze.ghahramani@gmail.com · hamze.ghahramani@iau.ac.ir
 **GitHub:** https://github.com/Hamzeh62/sea-clutter-cnn-shift-audit  
 **Published software release v1.0.0:** https://doi.org/10.5281/zenodo.24033776  
 **Software concept DOI (all versions):** https://doi.org/10.5281/zenodo.24033775  
-**CNN checkpoints and archival results:** separate Zenodo dataset deposit pending; not included in the software release.
+**CNN checkpoints and archived numerical results:** https://doi.org/10.5281/zenodo.24035348 (separate Dataset; CC BY 4.0). The software DOI does not contain these files.
 
 [![Software DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.24033776.svg)](https://doi.org/10.5281/zenodo.24033776)
 
 ## Scope
 
 This repository accompanies the working manuscript *Do Learned Detectors Transfer? A Distribution-Shift Battery and Coherence–Energy Decomposition for Supervised Sea-Clutter Detection Baselines*.
-It includes original research scripts, saved per-trial numerical evidence, and original scientific figure PDFs. The two trained CNN checkpoint files are supplied in a separate Zenodo artifacts upload, not inside the GitHub repository; the unpublished manuscript text is not redistributed here. The principal empirical finding is the **H1/H0 trade-off**: CNNs have strong detection on injected-target tests and show sensitivity to incoherent energy, but false-alarm rates can deteriorate severely after clutter-calibration shift. These are findings from the **historical Paper 2 protocol**, not the later corrected Paper 1 cross-fold study.
+It includes original research scripts, saved per-trial numerical evidence, and original scientific figure PDFs. The two trained CNN checkpoint files are archived separately at https://doi.org/10.5281/zenodo.24035348, not inside the GitHub repository; the unpublished manuscript text is not redistributed here. The principal empirical finding is the **H1/H0 trade-off**: CNNs have strong detection on injected-target tests and show sensitivity to incoherent energy, but false-alarm rates can deteriorate severely after clutter-calibration shift. These are findings from the **historical Paper 2 protocol**, not the later corrected Paper 1 cross-fold study.
 
 ## Reproducibility: what works
 
@@ -71,4 +71,4 @@ See `CITATION.cff` for the published research software DOI; the related manuscri
 
 ## Publication and DOI status
 
-The Paper 2 repository is public at https://github.com/Hamzeh62/sea-clutter-cnn-shift-audit. Its GitHub release v1.0.0 is archived under the software version DOI https://doi.org/10.5281/zenodo.24033776 (concept DOI https://doi.org/10.5281/zenodo.24033775). The separate model-checkpoint and numerical-results dataset is not yet published. Software source code and datasets/checkpoints have different licenses; the source-repository license indicator `MIT` does not relicense the numerical data or CNN weights. The related Paper 1 software/dataset DOIs refer to a **different** study and are not reused here.
+The Paper 2 repository is public at https://github.com/Hamzeh62/sea-clutter-cnn-shift-audit. Its GitHub release v1.0.0 is archived under the software version DOI https://doi.org/10.5281/zenodo.24033776 (concept DOI https://doi.org/10.5281/zenodo.24033775). The separate CNN checkpoint and numerical-results dataset is available at https://doi.org/10.5281/zenodo.24035348. Neither archived record includes the third-party raw IPIX recordings. Software source code and datasets/checkpoints have different licenses; the source-repository license indicator `MIT` does not relicense the numerical data or CNN weights. The related Paper 1 software/dataset DOIs refer to a **different** study and are not reused here.
