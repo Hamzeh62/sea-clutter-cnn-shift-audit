@@ -5,6 +5,13 @@
 Department of Electrical Engineering, Bandar Khamir Center / Bandar Lengeh Branch, Islamic Azad University, Hormozgan, Iran  
 Email: hamze.ghahramani@gmail.com · hamze.ghahramani@iau.ac.ir
 
+**GitHub:** https://github.com/Hamzeh62/sea-clutter-cnn-shift-audit  
+**Published software release v1.0.0:** https://doi.org/10.5281/zenodo.24033776  
+**Software concept DOI (all versions):** https://doi.org/10.5281/zenodo.24033775  
+**CNN checkpoints and archival results:** separate Zenodo dataset deposit pending; not included in the software release.
+
+[![Software DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.24033776.svg)](https://doi.org/10.5281/zenodo.24033776)
+
 ## Scope
 
 This repository accompanies the working manuscript *Do Learned Detectors Transfer? A Distribution-Shift Battery and Coherence–Energy Decomposition for Supervised Sea-Clutter Detection Baselines*.
@@ -56,7 +63,7 @@ The preserved original experimental scripts are under `code/`, **unchanged**, an
 
 ## Citation and rights
 
-See `CITATION.cff` (manuscript *unpublished*, no invented DOI). **MIT** applies to original author-owned code (`LICENSE`); **CC BY 4.0** applies to author-owned research outputs, figure artifacts, and separately archived CNN checkpoints (`DATA_LICENSE.md`). Licenses were approved by the author on 2026-11-06. No third-party raw IPIX data are redistributed.
+See `CITATION.cff` for the published research software DOI; the related manuscript remains unpublished. **MIT** applies to original author-owned code (`LICENSE`); **CC BY 4.0** applies to author-owned research outputs, figure artifacts, and separately archived CNN checkpoints (`DATA_LICENSE.md`). Licenses were approved by the author on 2026-11-06. No third-party raw IPIX data are redistributed.
 
 ## Verification and issue reporting
 
@@ -64,4 +71,4 @@ See `CITATION.cff` (manuscript *unpublished*, no invented DOI). **MIT** applies 
 
 ## Publication and DOI status
 
-This package has been prepared for a **new, distinct Paper 2 GitHub repository**. No GitHub repository URL or Zenodo DOI should be cited until the account owner creates/publishes it. The recommended repository name is `sea-clutter-cnn-shift-audit`. Software source code and datasets/checkpoints have different licenses; the source-repository license indicator `MIT` does not relicense the numerical data or CNN weights. The related Paper 1 software/dataset DOIs refer to a **different** study and are not reused here.
+The Paper 2 repository is public at https://github.com/Hamzeh62/sea-clutter-cnn-shift-audit. Its GitHub release v1.0.0 is archived under the software version DOI https://doi.org/10.5281/zenodo.24033776 (concept DOI https://doi.org/10.5281/zenodo.24033775). The separate model-checkpoint and numerical-results dataset is not yet published. Software source code and datasets/checkpoints have different licenses; the source-repository license indicator `MIT` does not relicense the numerical data or CNN weights. The related Paper 1 software/dataset DOIs refer to a **different** study and are not reused here.
