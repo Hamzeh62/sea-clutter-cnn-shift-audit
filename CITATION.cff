@@ -1,5 +1,5 @@
 cff-version: 1.2.0
-message: "Cite this research software version using DOI 10.5281/zenodo.24033776. The separate CNN checkpoints/results dataset will have its own DOI when published."
+message: "Cite this research software version using DOI 10.5281/zenodo.24033776. The author-owned CNN checkpoints and results dataset is available at 10.5281/zenodo.24035348."
 title: "Sea-clutter learned detector distribution-shift evaluation: research code and numerical artifacts"
 type: software
 authors:
