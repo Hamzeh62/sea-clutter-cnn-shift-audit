@@ -8,4 +8,4 @@ Both trained PyTorch checkpoints have been preserved without altering their byte
 | `best_cnn_real_iq.pt` | `6e2f1512fff2618d6f2a86feceafde1eaf0c95886992bb25ac3ef5fec0e34979` | CC BY 4.0 |
 
 
-Use the actual published Zenodo DOI once the artifacts record exists; do not invent one. Only load PyTorch checkpoints from sources you trust; prefer `weights_only=True` where supported. These are model weights, not original IPIX radar recordings.
+Archived checkpoint/results dataset DOI: https://doi.org/10.5281/zenodo.24035348 (separate from the software release DOI 10.5281/zenodo.24033776). Only load PyTorch checkpoints from sources you trust; prefer `weights_only=True` where supported. These are model weights, not original IPIX radar recordings.
